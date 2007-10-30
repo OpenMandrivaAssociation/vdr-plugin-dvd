@@ -37,6 +37,8 @@ param=--dvd=DVD_DEVICE
 %vdr_plugin_params_end
 
 %build
+# mdv #35140
+%define vdr_add_optflags -D__STDC_LIMIT_MACROS
 %vdr_plugin_build
 
 %install
