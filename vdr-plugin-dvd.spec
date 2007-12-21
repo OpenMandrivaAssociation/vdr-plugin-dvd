@@ -15,6 +15,7 @@ Group:		Video
 License:	GPL
 URL:		http://sourceforge.net/projects/dvdplugin
 Source:		vdr-%{plugin}-%{cvsrev}.tar.bz2
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	vdr-devel >= 1.4.1-6
 BuildRequires:	libdvdnav-devel liba52dec-devel
 Requires:	vdr-abi = %vdr_abi
