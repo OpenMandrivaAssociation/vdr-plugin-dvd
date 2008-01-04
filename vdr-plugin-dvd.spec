@@ -16,7 +16,7 @@ License:	GPL
 URL:		http://sourceforge.net/projects/dvdplugin
 Source:		vdr-%{plugin}-%{cvsrev}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	vdr-devel >= 1.4.1-6
+BuildRequires:	vdr-devel >= 1.4.7-9
 BuildRequires:	libdvdnav-devel liba52dec-devel
 Requires:	vdr-abi = %vdr_abi
 Requires(post):	vdr-common
@@ -38,7 +38,7 @@ param=--dvd=DVD_DEVICE
 
 %build
 # mdv #35140
-%define vdr_add_optflags -D__STDC_LIMIT_MACROS
+VDR_PLUGIN_FLAGS="%vdr_plugin_flags -D__STDC_LIMIT_MACROS"
 %vdr_plugin_build
 
 %install
