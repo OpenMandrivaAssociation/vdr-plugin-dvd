@@ -4,7 +4,7 @@
 %define version	0.3.6
 %define betaver	b03
 %define cvsrev	20071030
-%define rel	2
+%define rel	3
 %define release	0.%betaver.%cvsrev.%rel
 
 Summary:	VDR plugin: turn VDR into an (almost) full featured DVD player
@@ -15,8 +15,9 @@ Group:		Video
 License:	GPL
 URL:		http://sourceforge.net/projects/dvdplugin
 Source:		vdr-%{plugin}-%{cvsrev}.tar.bz2
+Patch0:		dvd-i18n-1.6.patch
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	vdr-devel >= 1.4.7-9
+BuildRequires:	vdr-devel >= 1.6.0
 BuildRequires:	libdvdnav-devel liba52dec-devel
 Requires:	vdr-abi = %vdr_abi
 Requires(post):	vdr-common
@@ -26,6 +27,8 @@ This is the DVD plugin for the Video Disk Recorder (VDR).
 
 %prep
 %setup -q -n %{plugin}
+%patch0 -p1
+%vdr_plugin_prep
 # script-without-shellbang
 chmod -x README COPYING HISTORY CONTRIBUTORS
 
