@@ -40,8 +40,16 @@ param=--dvd=DVD_DEVICE
 %vdr_plugin_params_end
 
 %build
+VDR_PLUGIN_FLAGS="%vdr_plugin_flags"
+%if %{mdkversion} >= 200900
+# mdv #40406
+mkdir -p dvdnav
+sed 's,\*this,*cthis,' %{_includedir}/dvdnav/dvdnav.h > dvdnav/dvdnav.h
+diff -u %{_includedir}/dvdnav/dvdnav.h dvdnav/dvdnav.h || :
+VDR_PLUGIN_FLAGS="$VDR_PLUGIN_FLAGS -I$PWD"
+%endif
 # mdv #35140
-VDR_PLUGIN_FLAGS="%vdr_plugin_flags -D__STDC_LIMIT_MACROS"
+VDR_PLUGIN_FLAGS="$VDR_PLUGIN_FLAGS -D__STDC_LIMIT_MACROS"
 %vdr_plugin_build
 
 %install
