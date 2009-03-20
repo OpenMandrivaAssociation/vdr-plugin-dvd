@@ -4,7 +4,7 @@
 %define version	0.3.6
 %define betaver	b03
 %define cvsrev	20071030
-%define rel	4
+%define rel	5
 %define release	0.%betaver.%cvsrev.%rel
 
 Summary:	VDR plugin: turn VDR into an (almost) full featured DVD player
