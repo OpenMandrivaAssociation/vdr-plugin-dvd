@@ -17,7 +17,7 @@ URL:		http://sourceforge.net/projects/dvdplugin
 Source:		vdr-%{plugin}-%{cvsrev}.tar.bz2
 Patch0:		dvd-i18n-1.6.patch
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	vdr-devel >= 1.6.0
+BuildRequires:	vdr-devel >= 1.6.0-7
 BuildRequires:	libdvdnav-devel liba52dec-devel
 Requires:	vdr-abi = %vdr_abi
 Requires(post):	vdr-common
@@ -40,17 +40,17 @@ param=--dvd=DVD_DEVICE
 %vdr_plugin_params_end
 
 %build
-VDR_PLUGIN_FLAGS="%vdr_plugin_flags"
+VDR_PLUGIN_EXTRA_FLAGS=
 %if %{mdkversion} >= 200900
 # mdv #40406
 mkdir -p dvdnav
 sed 's,\*this,*cthis,' %{_includedir}/dvdnav/dvdnav.h > dvdnav/dvdnav.h
 diff -u %{_includedir}/dvdnav/dvdnav.h dvdnav/dvdnav.h || :
-VDR_PLUGIN_FLAGS="$VDR_PLUGIN_FLAGS -I$PWD"
+VDR_PLUGIN_EXTRA_FLAGS="-I$PWD"
 %endif
 # mdv #35140
-VDR_PLUGIN_FLAGS="$VDR_PLUGIN_FLAGS -D__STDC_LIMIT_MACROS"
-%vdr_plugin_build
+VDR_PLUGIN_EXTRA_FLAGS="$VDR_PLUGIN_EXTRA_FLAGS -D__STDC_LIMIT_MACROS"
+%vdr_plugin_build LDFLAGS="%vdr_plugin_ldflags"
 
 %install
 rm -rf %{buildroot}
