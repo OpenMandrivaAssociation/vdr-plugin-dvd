@@ -15,7 +15,7 @@ URL:		http://sourceforge.net/projects/dvdplugin
 Source:		vdr-%{plugin}-%{cvsrev}.tar.bz2
 Patch0:		dvd-i18n-1.6.patch
 BuildRequires:	vdr-devel >= 1.6.0-7
-BuildRequires:	libdvdnav-devel liba52dec-devel
+BuildRequires:	libdvdnav-devel a52dec-devel
 Requires:	vdr-abi = %vdr_abi
 Requires(post):	vdr-common
 
