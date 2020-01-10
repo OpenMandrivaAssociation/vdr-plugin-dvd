@@ -25,7 +25,7 @@ This is the DVD plugin for the Video Disk Recorder (VDR).
 
 %prep
 %setup -q -n %{plugin}
-%apply_patches
+%autopatch -p1
 %vdr_plugin_prep
 # script-without-shellbang
 chmod -x README COPYING HISTORY CONTRIBUTORS
