@@ -5,7 +5,7 @@
 Summary:	VDR plugin: turn VDR into an (almost) full featured DVD player
 Name:		vdr-plugin-%plugin
 Version:	0.3.6
-Release:	0.%betaver.%cvsrev.1
+Release:	0.%betaver.%cvsrev.2
 Group:		Video
 # GPLv2+ due to dvdspu.c, otherwise would be GPL+
 License:	GPLv2+
