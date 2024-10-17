@@ -9,7 +9,7 @@ Release:	0.%betaver.%cvsrev.1
 Group:		Video
 # GPLv2+ due to dvdspu.c, otherwise would be GPL+
 License:	GPLv2+
-URL:		http://sourceforge.net/projects/dvdplugin
+URL:		https://sourceforge.net/projects/dvdplugin
 Source:		vdr-%{plugin}-%{cvsrev}.tar.bz2
 # from e-tobi debian repository:
 Patch0:		11_allow-non-existing-dvd-drive.dpatch
